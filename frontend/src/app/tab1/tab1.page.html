@@ -1,9 +1,6 @@
 
 <ion-content>
- <!-- tab1.page.html -->
-<div>
-   <li *ngFor="let drink of drinks">
-    <p>{{drink.name}}</p>
-    </li>
-   </div>
+    <div class="card-container" *ngFor="let drink of drinks">
+        <app-card [drinks]="drink"></app-card>
+    </div>
 </ion-content>
