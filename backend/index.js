@@ -31,7 +31,7 @@ app.listen(Port, function() {
 });
 
 app.get('/', function(req, res) {
-    res.send('hello dumbass')
+    res.send('hello Lasse')
 });
 
 app.post('/', function(req, res) {
