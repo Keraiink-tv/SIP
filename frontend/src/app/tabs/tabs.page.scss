@@ -27,7 +27,20 @@ ion-tab-button:focus {
     color: #f9da89;
 }
 
-
 ion-icon {
     font-size: xx-large;
+}
+
+ion-header h1 {
+    color: var(--ion-color-secondary);
+    font-size: 5rem;
+    font-weight: bolder;
+    text-align: center;
+
+}
+
+.midt ion-icon {
+    color: var(--ion-color-primary);
+    font-size: 4rem;
+    padding-inline: 0;
 }
