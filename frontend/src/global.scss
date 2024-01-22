@@ -28,3 +28,20 @@
 body {
     background-color: #fffdf8;
 }
+
+h1 {
+    color:var(--ion-color-primary);
+    font-size: xx-large;
+    text-transform: uppercase;
+    
+}
+
+p {
+    color: var(--ion-color-secondary);
+    font-size: large;
+
+}
+
+ion-grid {
+    padding-inline: 15px;
+}
