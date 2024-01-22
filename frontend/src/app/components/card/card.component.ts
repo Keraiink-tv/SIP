@@ -17,6 +17,7 @@ export class CardComponent  implements OnInit {
     img: "string"
   }
 
+
   constructor(private drinkService: DrinksService) { }
 
   ngOnInit() {

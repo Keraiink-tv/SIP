@@ -13,6 +13,7 @@ import { Drink } from '../models/drink.model';
     private Drink: Drink [] = [];
 
     constructor(private http: HttpClient) {}
+    
 
     fetchDrinks(): void {
       this.http
@@ -24,7 +25,11 @@ import { Drink } from '../models/drink.model';
         (error) => {
           console.error(error);
         }
+
+        
       );
+
+     
     }
 
     getDrink(): Observable<Drink[]> {
