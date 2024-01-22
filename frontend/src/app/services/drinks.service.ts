@@ -12,11 +12,11 @@ const apiUrl = 'https://localhost:8080/api/drinks';
   
     constructor(private http: HttpClient) { }
   
-    getAll(): Observable<Drink[]> {
+    getAllDrinks(): Observable<Drink[]> {
       return this.http.get<Drink[]>(apiUrl);
     }
   
-    get(id: any): Observable<Drink> {
+    getSpecificDrink(id: any): Observable<Drink> {
       return this.http.get(`${apiUrl}/${id}`);
     }
 
