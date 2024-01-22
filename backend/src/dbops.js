@@ -11,7 +11,7 @@ function createRouter(db) {
 // Read one drink drink
     router.get('/drinks/get', function (req, res, next) {
         db.query(
-            'SELECT * FROM drinks WHERE Id = 1',
+            'SELECT * FROM drinks',
             (error, result) => {
                 if (error) {
                     console.log(error);

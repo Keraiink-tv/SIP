@@ -1,6 +1,6 @@
-export class Drink {
-    id?: any;
-    name?: string;
-    description?: string;
-    img?: string;
+export interface Drink {
+    id: any;
+    name: string;
+    description: string;
+    img: string;
   }

@@ -3,23 +3,32 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Drink } from '../models/drink.model';
 
-const apiUrl = 'https://localhost:8000/drinks';
 
 @Injectable({
     providedIn: 'root'
   })
+
   export class DrinksService {
-  
-    constructor(private http: HttpClient) { }
-  
-    getAllDrinks(): Observable<Drink[]> {
-      return this.http.get<Drink[]>(apiUrl + "/getall");
-    }
-  
-    getSpecificDrink(id: any): Observable<Drink> {
-      return this.http.get(`${apiUrl}/${id}`);
+    private apiUrl = 'http://localhost:8000/drinks/get'
+    private Drink: Drink [] = [];
+
+    constructor(private http: HttpClient) {}
+
+    fetchDrinks(): void {
+      this.http
+      .get<Drink[]>('http://localhost:8000/drinks/get')
+      .subscribe(
+        (response) => {
+          this.Drink = response;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     }
 
-  // Other methods for handling different HTTP methods (POST, PUT, DELETE, etc.)
-}
+    getDrink(): Observable<Drink[]> {
+      return this.http.get<Drink[]>(this.apiUrl);
+    }
+  }
 
