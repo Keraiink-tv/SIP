@@ -1,1 +1,33 @@
+ion-header {
+    box-shadow: none;
+}
 
+ion-tab-bar {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background-color: var(--ion-color-primary); 
+    padding-block: 7px;
+}
+
+ion-tab-button {
+    background-color: var(--ion-color-primary); 
+    color: #fffdf8;
+    font-size: medium;
+    
+}
+
+ion-tab-button:active {
+    background-color: var(--ion-color-primary); 
+    font-size: medium;
+    color: #f9da89;
+}
+
+ion-tab-button:focus {
+    color: #f9da89;
+}
+
+
+ion-icon {
+    font-size: xx-large;
+}
