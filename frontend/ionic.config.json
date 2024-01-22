@@ -1,5 +1,5 @@
 {
-  "name": "sip-app",
+  "name": "frontend",
   "integrations": {
     "capacitor": {}
   },

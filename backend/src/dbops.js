@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 function createRouter(db) {
     const router = express.Router()
 
+// Read your drink
     router.get('/drinks/get', function (req, res, next) {
         db.query(
             'SELECT * FROM drinks WHERE Id = 2',
@@ -22,10 +23,10 @@ function createRouter(db) {
         );
     });
 
-    
+// Insert your drink
     router.post('/drinks/post', function (req, res, next) {
         db.query(
-            'INSERT INTO drinks (Id, name, description, img) VALUE (12, "test", "test", "test")',
+            'INSERT INTO drinks (Id, name, description, img) VALUE (69, "test", "test", "test")',
             (error, result) => {
                 if (error) {
                     console.log(error);
@@ -37,28 +38,7 @@ function createRouter(db) {
         );
     });
 
-// If you want to delete a specific drink from your table
-    router.delete('/drinks/delete/:id', function (req, res, next) {
-        const drinkId = req.params.id;
-
-        db.query(
-            'DELETE FROM drinks WHERE Id = 12',
-            [drinkId],
-            (error, result) => {
-                if (error) {
-                    console.log(error);
-                    res.status(500).json({ status: 'error' });
-                } else {
-                    if (result.affectedRows > 0) {
-                        res.status(200).json({ status: 'success', message: 'Drink updated successfully' });
-                    } else {
-                        res.status(404).json({ status: 'error', message: 'Drink not found' });
-                    }
-                }
-            }
-        );
-    });
-
+// Update your drink
     router.put('/drinks/update/:id', function (req, res, next) {
         const drinkId = req.params.id;
         const { name, description, img } = req.body;
@@ -81,6 +61,29 @@ function createRouter(db) {
             }
         );
     });
+
+// If you want to delete a specific drink from your table
+    router.delete('/drinks/delete/:id', function (req, res, next) {
+        const drinkId = req.params.id;
+
+        db.query(
+            'DELETE FROM drinks WHERE Id = 69',
+            [drinkId],
+            (error, result) => {
+                if (error) {
+                    console.log(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    if (result.affectedRows > 0) {
+                        res.status(200).json({ status: 'success', message: 'Drink deleted successfully' });
+                    } else {
+                        res.status(404).json({ status: 'error', message: 'Drink not found' });
+                    }
+                }
+            }
+        );
+    });
+
 
     return router;
 }
