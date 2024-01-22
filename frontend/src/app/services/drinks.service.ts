@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Drink } from '../models/drink.model';
 
-const apiUrl = 'https://localhost:8080/api/drinks';
+const apiUrl = 'https://localhost:8000/drinks';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +13,7 @@ const apiUrl = 'https://localhost:8080/api/drinks';
     constructor(private http: HttpClient) { }
   
     getAllDrinks(): Observable<Drink[]> {
-      return this.http.get<Drink[]>(apiUrl);
+      return this.http.get<Drink[]>(apiUrl + "/getall");
     }
   
     getSpecificDrink(id: any): Observable<Drink> {

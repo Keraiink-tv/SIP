@@ -8,10 +8,25 @@ app.use(bodyParser.urlencoded({extended: true}));
 function createRouter(db) {
     const router = express.Router()
 
-// Read your drink
+// Read one drink drink
     router.get('/drinks/get', function (req, res, next) {
         db.query(
-            'SELECT * FROM drinks WHERE Id = 2',
+            'SELECT * FROM drinks WHERE Id = 1',
+            (error, result) => {
+                if (error) {
+                    console.log(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json(result); // Corrected from results to result
+                }
+            }
+        );
+    });
+
+    // Read every drink
+    router.get('/drinks/getall', function (req, res, next) {
+        db.query(
+            'SELECT * FROM drinks',
             (error, result) => {
                 if (error) {
                     console.log(error);
