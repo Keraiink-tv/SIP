@@ -24,7 +24,7 @@ function createRouter(db) {
 
     router.post('/drinks/post', function (req, res, next) {
         db.query(
-            'INSERT INTO drinks (Id, name, description, img) VALUE (69, "Cuba Libra", "beskrivelse", "billede")',
+            'INSERT INTO drinks (Id, name, description, img) VALUE (10, "Whiskey Sour", "Den er sur", "indsæt billede")',
             (error, result) => {
                 if (error) {
                     console.log(error);
