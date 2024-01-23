@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DrinksService } from 'src/app/services/drinks.service';
 import { Drink } from 'src/app/models/drink.model';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mydrinks',
@@ -24,7 +25,7 @@ export class MydrinksComponent  implements OnInit {
   @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
   
   
-  constructor(private drinkService: DrinksService, private activatedRoute: ActivatedRoute) { }
+  constructor(private drinkService: DrinksService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.drinkService.fetchDrinks();
@@ -37,6 +38,7 @@ export class MydrinksComponent  implements OnInit {
         console.log('Drink deleted successfully');
         // Emit an event to notify the parent component (Tab3Page) that the drink has been deleted
         this.deleteEvent.emit(this.drinks.id);
+        this.router.navigate(['/tabs/tab1']);
       },
       (error: any) => {
         console.error('Error deleting drink:', error);
