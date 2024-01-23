@@ -2,17 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Drink } from '../models/drink.model';
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 
 
 @Injectable({
     providedIn: 'root'
   })
-
+ 
   export class DrinksService {
     private apiUrl = 'http://localhost:8000/drinks/get'
     private Drink: Drink [] = [];
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient,
+                private sanitizer: DomSanitizer) {}
+
     
 
     fetchDrinks(): void {

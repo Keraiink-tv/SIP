@@ -14,9 +14,9 @@ export class CardComponent  implements OnInit {
     id: 0,
     name: "name",
     description: "description",
-    img: "string"
+    img: "string",
   }
-
+  
 
   constructor(private drinkService: DrinksService) { }
 
