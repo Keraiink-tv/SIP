@@ -1,1 +1,28 @@
-TABZ 2
+    <ion-header>
+        <ion-toolbar>
+          <ion-title>Opret drink</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content class="ion-padding">
+        <form (ngSubmit)="createDrink()">
+          <ion-item>
+            <ion-label position="floating">Navn</ion-label>
+            <ion-input type="text" [(ngModel)]="newDrink.name" name="name" required></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label position="floating">Beskrivelse</ion-label>
+            <ion-textarea [(ngModel)]="newDrink.description" name="description" required></ion-textarea>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label position="floating">Billede link</ion-label>
+            <ion-input type="text" [(ngModel)]="newDrink.img" name="img" required></ion-input>
+          </ion-item>
+      
+          <!-- Add more input fields for other properties as needed -->
+      
+          <ion-button expand="full" type="submit">Opret drink</ion-button>
+        </form>
+      </ion-content>

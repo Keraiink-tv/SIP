@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      {{drinks.name}}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{drinks.description}}</p>
+
+    <div class="buttonbox">
+      <ion-button (click)="deleteDrink()">Slet Drink</ion-button>
+      <ion-button href="drinkupdate/{{drinks.id}}">Opdater drink</ion-button>
+    </div>
+    
+  </ion-card-content>
+</ion-card>

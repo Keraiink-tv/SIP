@@ -1,1 +1,22 @@
-TABZ 3 YOYOYO
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" sizeMd="8" sizeLg="6" class="ion-padding-start">
+                <h1>Velkommen til <span class="SIP">SIP</span></h1>
+                <p>SIP er perfekt til dig der ønsker at opdage lækre nye drinksopskrifter, og dele dine kreationer med andre
+                    drinks nørder! 
+                </p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" sizeMd="6" sizeLg="4" *ngFor="let drink of drinks">
+                <div class="card-container">
+                    <app-mydrinks [drinks]="drink"></app-mydrinks>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    
+</ion-content>

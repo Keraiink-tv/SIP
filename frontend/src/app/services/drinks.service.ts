@@ -35,5 +35,19 @@ import { Drink } from '../models/drink.model';
     getDrink(): Observable<Drink[]> {
       return this.http.get<Drink[]>(this.apiUrl);
     }
+
+    deleteDrink(id: number): Observable<Drink[]> {
+      const url = `http://localhost:8000/drinks/delete/${id}`;
+      return this.http.delete<Drink[]>(url)
+    }
+
+    updateDrink(id: number, data): Observable<Drink[]> {
+      const url = `http://localhost:8000/drinks/update/${id}`;
+      return this.http.put<Drink[]>(url, data);
+    }
+
+    createDrink(data: any): Observable<Drink[]> {
+      return this.http.post<Drink[]>('http://localhost:8000/drinks/post', data)
+    }
   }
 

@@ -40,8 +40,18 @@ function createRouter(db) {
 
 // Insert your drink
     router.post('/drinks/post', function (req, res, next) {
+
+        // Extracting data from the request body
+    const { name, description, img } = req.body;
+
+    // Checking if all required fields are present
+    if (!name || !description || !img) {
+        return res.status(400).json({ status: 'error', message: 'Incomplete data provided' });
+    }  
+
         db.query(
-            'INSERT INTO drinks (Id, name, description, img) VALUE (69, "test", "test", "test")',
+            'INSERT INTO drinks (name, description, img) VALUES (?, ?, ?)',
+            [name, description, img],
             (error, result) => {
                 if (error) {
                     console.log(error);
@@ -60,7 +70,7 @@ function createRouter(db) {
     
         // Assuming you want to update name, description, and img
         db.query(
-            'UPDATE drinks SET name = "test1", description = "test1", img = "test1" WHERE Id = 11',
+            'UPDATE drinks SET name = ?, description = ?, img = ? WHERE Id = ?',
             [name, description, img, drinkId],
             (error, result) => {
                 if (error) {
@@ -82,7 +92,7 @@ function createRouter(db) {
         const drinkId = req.params.id;
 
         db.query(
-            'DELETE FROM drinks WHERE Id = 69',
+            'DELETE FROM drinks WHERE Id = ?',
             [drinkId],
             (error, result) => {
                 if (error) {

@@ -4,14 +4,15 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from '../components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { MydrinksComponent } from '../components/mydrinks/mydrinks.component';
 
 @NgModule({
     declarations: [
-        CardComponent
+        CardComponent, MydrinksComponent
     ],
     imports: [CommonModule, IonicModule, RouterModule, FormsModule],
     exports: [
-        CardComponent
+        CardComponent, MydrinksComponent
     ],
     
 })
